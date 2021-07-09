@@ -16,7 +16,7 @@ int funcInMain()
     firstClass fC2(42);
     fC2 = fC1;
     firstClass fC3(fC2);
-    cout << "Hello world!" << endl;
+    cout << "Hello world!!!" << endl;
     addNumbers(1.0,5.2);
     addNumbers(1,5);
 
@@ -84,7 +84,7 @@ int main()
     for_each ( beginArrPtr, endArrPtr, []( int arrElement ) { cout << arrElement <<"|"; } );
     cout << endl;
 
-    cout << "return 0" << endl;
+    cout << "return 000" << endl;
     return 0;
 }
 
