@@ -1,3 +1,7 @@
+
+#ifndef CLASS1_H_INCLUDED
+#define CLASS1_H_INCLUDED
+
 #include <iostream>
 #include <vector>
 
@@ -45,5 +49,7 @@ inline void inFunc ( const T& arg1, const T& arg2 )
     (arg1 > arg2)? res="arg1": res="arg2";
     cout << "inFunc RES = "<< res << endl;
 }
+
+#endif // CLASS1_H_INCLUDED
 
 

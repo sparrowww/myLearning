@@ -5,6 +5,7 @@
 #include <time.h>
 
 #include "class1.hpp"
+#include "class2.h"
 
 using namespace std;
 
@@ -83,6 +84,29 @@ int main()
 
     for_each ( beginArrPtr, endArrPtr, []( int arrElement ) { cout << arrElement <<"|"; } );
     cout << endl;
+
+    staticBindingChild * staticChild = new staticBindingChild;
+    delete staticChild;
+    staticChild = nullptr;
+
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    staticBindingParent * staticParent = new staticBindingChild;
+    delete staticParent;
+    staticParent = nullptr;
+
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    dynamicBindingChild * dynamicChild = new dynamicBindingChild;
+    delete dynamicChild;
+    dynamicChild = nullptr;
+
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+
+    dynamicBindingParent * dynamicParent = new dynamicBindingChild;
+    delete dynamicParent;
+    dynamicParent = nullptr;
+
 
     cout << "return 000" << endl;
     return 0;
