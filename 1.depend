@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1625853944 source:f:\work\2021\mylearning\class1.cpp
+	"class1.hpp"
+
+1626201892 f:\work\2021\mylearning\class1.hpp
+	<iostream>
+	<vector>
+
+1626376404 source:f:\work\2021\mylearning\main.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+	<time.h>
+	"class1.hpp"
+	"class2.h"
+
+1626204246 f:\work\2021\mylearning\class2.h
+	"iostream"
+
+1626203067 source:f:\work\2021\mylearning\class2.cpp
+	"class2.h"
+

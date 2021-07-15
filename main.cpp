@@ -48,13 +48,22 @@ bool funcMin (int i,int j)
     return (i<j);
 };
 
+void lambdaTest ();
+
 int main()
 {
     cout << "funcInMain START" << endl;
     funcInMain();
     cout << "funcInMain STOP" << endl;
 
+    lambdaTest();
 
+    cout << "return 000" << endl;
+    return 0;
+};
+
+void lambdaTest ()
+{
     vector<int> myVector (50);
 
     srand(time(NULL));
@@ -108,8 +117,15 @@ int main()
     dynamicParent = nullptr;
 
 
-    cout << "return 000" << endl;
-    return 0;
-}
+    auto myLambda = [](int a, int b) -> int{return a*b;};
+    int num = myLambda(6,11);
+
+    int numToChange = 77;
+    int num2 = ([](int a, int b, int &c) -> int{ c -=70;return a*b;})(8,8, numToChange);
+
+    cout << "LAMBDA = " << num << endl;
+    cout << "LAMBDA2 = " << num2 << endl;
+    cout << "LAMBDA2, numToChange= " << numToChange << endl;
+};
 
 
