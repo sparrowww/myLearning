@@ -37,7 +37,7 @@ class dynamicBindingChild : public dynamicBindingParent
 {
     public:
         dynamicBindingChild() { cout << "D()" << endl;};
-        ~dynamicBindingChild() { cout << "~D()" << endl;};
+        virtual ~dynamicBindingChild() { cout << "~D()" << endl;};
 };
 
 
