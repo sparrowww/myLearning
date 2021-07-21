@@ -6,8 +6,45 @@
 
 #include "class1.hpp"
 #include "class2.h"
+#include "class3.hpp"
 
 using namespace std;
+
+int funcInMain();
+void lambdaTest ();
+void cleverPtrTest ();
+void mySingletonTest ();
+
+int main()
+{
+    //funcInMain();
+    //lambdaTest();
+    //cleverPtrTest();
+    mySingletonTest();
+
+
+    cout << "return 0" << endl;
+    return 0;
+};
+
+void cleverPtrTest ()
+{
+    cout << "cleverPtrTest BEGIN" << endl;
+    CMyCleverPtr<CTestClever> clever = CMyCleverPtr<CTestClever>(new CTestClever());
+    cout << "cleverPtrTest END" << endl;
+};
+
+void mySingletonTest ()
+{
+    CMySingleton *oMySingle = CMySingleton::getInstance();
+    oMySingle->setVar(42);
+    cout << "oMySingle getVar=" << oMySingle->getVar() << endl;
+    CMySingleton *oMySingle2 = CMySingleton::getInstance();
+    cout << "oMySingle2 getVar=" << oMySingle2->getVar() << endl;
+    oMySingle->setVar(11);
+    CMySingleton *oMySingle3 = CMySingleton::getInstance();
+    cout << "oMySingle3 getVar=" << oMySingle3->getVar() << endl;
+};
 
 int funcInMain()
 {
@@ -46,20 +83,6 @@ int funcInMain()
 bool funcMin (int i,int j)
 {
     return (i<j);
-};
-
-void lambdaTest ();
-
-int main()
-{
-    cout << "funcInMain START" << endl;
-    funcInMain();
-    cout << "funcInMain STOP" << endl;
-
-    lambdaTest();
-
-    cout << "return 000" << endl;
-    return 0;
 };
 
 void lambdaTest ()

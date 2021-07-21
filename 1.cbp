@@ -40,6 +40,9 @@
 		<Unit filename="class2.h">
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="class3.hpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
