@@ -7,15 +7,21 @@ class CMyCleverPtr
    public:
     CMyCleverPtr(T * _ptr):ptr(_ptr){printf("CMyCleverPtr()\n");};
     ~CMyCleverPtr(){delete ptr;printf("~CMyCleverPtr()\n");};
+    T * operator -> (){ return ptr;};
+    T & operator * () {return *ptr;};
    private:
     T * ptr;
 };
 
-class CTestClever
+class CMy1
 {
     public:
-        CTestClever(){printf("CTestClever()\n");};
-        ~CTestClever(){printf("~CTestClever()\n");};
+        CMy1(int _var = 0):myVar(_var){printf("CMy1()\n");};
+        ~CMy1(){printf("~CMy1()\n");};
+        void print(){printf("myVar=%d\n", myVar);};
+        void setVar (int _var){myVar=_var;};
+    private:
+        int myVar;
 };
 
 class CMySingleton

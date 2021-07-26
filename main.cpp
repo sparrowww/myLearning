@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <vector>
 #include <time.h>
+#include <memory> ///unique_ptr
 
 #include "class1.hpp"
 #include "class2.h"
@@ -14,23 +15,64 @@ int funcInMain();
 void lambdaTest ();
 void cleverPtrTest ();
 void mySingletonTest ();
+void myCastTest();
 
 int main()
 {
     //funcInMain();
     //lambdaTest();
     //cleverPtrTest();
-    mySingletonTest();
+    //mySingletonTest();
+    myCastTest();
+
 
 
     cout << "return 0" << endl;
     return 0;
 };
 
+typedef int TMyInt;
+
+void myCastTest()
+{
+    cout << "myCastTest BEGIN" << endl;
+
+    int iVar = 10;
+    TMyInt MyVar = 11;
+    float fVar = 10.15;
+    printf("print1 = %ld\n", (long int)iVar);  // C type
+    printf("print2 = %d\n", reinterpret_cast<int>(MyVar));  // reinterpret_cast type
+    printf("print3 = %f\n", static_cast<double>(fVar));  // static_cast type
+    cout << "myCastTest END" << endl;
+};
+
 void cleverPtrTest ()
 {
-    cout << "cleverPtrTest BEGIN" << endl;
-    CMyCleverPtr<CTestClever> clever = CMyCleverPtr<CTestClever>(new CTestClever());
+    cout << "cleverPtrTest BEGIN MY" << endl;
+    {
+       CMyCleverPtr<CMy1> clever = CMyCleverPtr<CMy1>(new CMy1(42));
+       clever->print();
+       clever->setVar(43);
+       (*clever).print();
+    }
+
+    cout << "cleverPtrTest BEGIN UNIQUE" << endl;
+    {
+       unique_ptr<CMy1> uniqPtr = unique_ptr<CMy1>(new CMy1(88));
+       uniqPtr->print();
+    }
+
+    cout << "cleverPtrTest BEGIN SHARED" << endl;
+    {
+        auto ptrCMy1 = new CMy1(100);
+        shared_ptr<CMy1> sharedPtr = shared_ptr<CMy1>(ptrCMy1);
+        sharedPtr->print();
+        shared_ptr<CMy1> sharedPtr2 = shared_ptr<CMy1>(sharedPtr);
+        sharedPtr2->print();
+        auto numPtr = sharedPtr.use_count();
+        printf ("numPtr = %ld\n", numPtr);
+    }
+
     cout << "cleverPtrTest END" << endl;
 };
 
