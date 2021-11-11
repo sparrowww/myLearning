@@ -23,7 +23,7 @@ int main()
     //lambdaTest();
     //cleverPtrTest();
     //mySingletonTest();
-    myCastTest();
+    //myCastTest();
 
 
 
