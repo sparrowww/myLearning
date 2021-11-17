@@ -25,8 +25,6 @@ int main()
     //mySingletonTest();
     //myCastTest();
 
-
-
     cout << "return 0" << endl;
     return 0;
 };
